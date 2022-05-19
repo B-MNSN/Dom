@@ -1,114 +1,17 @@
-// document.getElementById('ok').addEventListener('click', function(e) {
-//     alert('ok is clicked')
-// })
-// document.getElementById('cancel').addEventListener('click', function(e) {
-//     alert('cancel is clicked')
-// })
-// document.getElementById('no').addEventListener('click', function(e) {
-//     alert('no is clicked')
-// })
+var searchButton = document.getElementById('searchButton')
+var inputText = document.getElementById('inputText')
+var output = document.getElementById('output')
 
-// let elems = document.getElementsByClassName('flex-item')
-// console.log(elems)
-// for (let elem of elems) {
-//     elem.addEventListener('mousemove', function(e) {
-//         console.log('x = ' + e.screenX + ' Y = ' + e.screenY)
-//     })
-//     elem.addEventListener('click', function(e) {
-//         alert(elem.innerHTML)
-//     })
-// }
-// document.getElementById('ok').addEventListener('click', function(e) {
-//     let noElement = document.getElementById('no')
-//     if (noElement.classList.contains('toggleOn')) {
-//         noElement.classList.replace('toggleOn', 'toggleOff')
-//     } else if (noElement.classList.contains('toggleOff')) {
-//         noElement.classList.replace('toggleOff', 'toggleOn')
-//     } else(
-//         noElement.classList.add('toggleOn')
-//     )
-// })
-
-// var borderTick = 2;
-// document.getElementById('cancel').style.border = `${borderTick}px solid white`;
-
-// let margin = 20
-// document.getElementById("ok").addEventListener('click', function(e) {
-//     margin += 5
-//     let marginSize = `20px ${margin}px`
-//     document.getElementById('cancel').style.margin = marginSize
-//     document.getElementById('no').style.margin = marginSize
-//     margin++
-// })
-
-// let showText = ['ok', 'วิชานี้', 'ง่าย', 'จริงๆนะ']
-// let showIndex = 0
-// document.getElementById('no').addEventListener('dblclick', function(e) {
-//     showIndex++
-//     if (showIndex >= showText.length) {
-//         showIndex = 0;
-//     }
-//     const okButton = document.getElementById('ok')
-//     okButton.innerText = showText[showIndex]
-// })
-
-// function onOkClicked(e) {
-//     e.stopPropagation();
-//     // alert('ok clicked')
-//     addText('ok')
-// }
-
-// function onCancelClicked(e) {
-//     e.stopPropagation();
-//     // alert('cancel clicked')
-//     addText('cancel')
-// }
-
-// function onNoClicked(e) {
-//     e.stopPropagation();
-//     // alert('no clicked')
-//     addText('no')
-// }
-// let output = ' '
-// let outputElement = document.getElementById('output')
-// document.getElementById('container').onclick = function() {
-//     output = ''
-//     outputElement.innerText = output
-// }
-
-// function addText(input) {
-//     output = output + input + ' '
-//     outputElement.innerText = output
-// }
-// // document.getElementById('cancel').addEventListener('click', onCancelClicked)
-// // document.getElementById('no').onclick = onNoClicked
-
-// let keyword = {
-//     'ok': 'Ok',
-//     'cancel': 'Cancel',
-//     'no': 'No'
-// }
-// let elems = document.getElementsByClassName('flex-item')
-// for (let elem of elems) {
-//     elem.addEventListener('click', function(e) {
-//         e.stopPropagation()
-//         addText(keyword[elem.innerText])
-//     })
-// }
-
-var outputContainer = document.getElementById('content')
-var counter = 0;
-
-function addNode() {
-    newNode = document.createElement('div')
-    newNode.classList.add('flex-item')
-    newNode.setAttribute('id', counter)
-    newNode.innerText = counter
-    counter = counter + 1
-    newNode.innerText = counter
-    outputContainer.appendChild(newNode)
+function addText() {
+    let text = inputText.value
+    console.log(text)
+    let newButton = document.createElement('button')
+    newButton.classList.add('btn')
+    newButton.classList.add('btn-outline-warning')
+    newButton.classList.add('m-2')
+    newButton.setAttribute('type', 'button')
+    newButton.innerText = text
+    output.appendChild(newButton)
 }
-
-function onOkClicked(e) {
-    addNode()
-}
+searchButton.addEventListener('click', addText)
+inputText.addEventListener('blur', addText)
