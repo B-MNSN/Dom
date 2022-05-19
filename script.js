@@ -69,29 +69,46 @@
 //     // alert('no clicked')
 //     addText('no')
 // }
-let output = ' '
-let outputElement = document.getElementById('output')
-document.getElementById('container').onclick = function() {
-    output = ''
-    outputElement.innerText = output
+// let output = ' '
+// let outputElement = document.getElementById('output')
+// document.getElementById('container').onclick = function() {
+//     output = ''
+//     outputElement.innerText = output
+// }
+
+// function addText(input) {
+//     output = output + input + ' '
+//     outputElement.innerText = output
+// }
+// // document.getElementById('cancel').addEventListener('click', onCancelClicked)
+// // document.getElementById('no').onclick = onNoClicked
+
+// let keyword = {
+//     'ok': 'Ok',
+//     'cancel': 'Cancel',
+//     'no': 'No'
+// }
+// let elems = document.getElementsByClassName('flex-item')
+// for (let elem of elems) {
+//     elem.addEventListener('click', function(e) {
+//         e.stopPropagation()
+//         addText(keyword[elem.innerText])
+//     })
+// }
+
+var outputContainer = document.getElementById('content')
+var counter = 0;
+
+function addNode() {
+    newNode = document.createElement('div')
+    newNode.classList.add('flex-item')
+    newNode.setAttribute('id', counter)
+    newNode, innerText = counter
+    counter = counter + 1
+    newNode.innerText = counter
+    outputContainer.appendChild(newNode)
 }
 
-function addText(input) {
-    output = output + input + ' '
-    outputElement.innerText = output
-}
-// document.getElementById('cancel').addEventListener('click', onCancelClicked)
-// document.getElementById('no').onclick = onNoClicked
-
-let keyword = {
-    'ok': 'Ok',
-    'cancel': 'Cancel',
-    'no': 'No'
-}
-let elems = document.getElementsByClassName('flex-item')
-for (let elem of elems) {
-    elem.addEventListener('click', function(e) {
-        e.stopPropagation()
-        addText(keyword[elem.innerText])
-    })
+function onOkClicked(e) {
+    addNode()
 }
