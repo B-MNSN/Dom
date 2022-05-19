@@ -1,8 +1,13 @@
-.container {
+.container,
+.content {
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
     background-color: gray;
+}
+
+.content {
+    background-color: skyblue;
 }
 
 .flex-item {
