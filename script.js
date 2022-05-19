@@ -52,23 +52,23 @@
 //     okButton.innerText = showText[showIndex]
 // })
 
-function onOkClicked(e) {
-    e.stopPropagation();
-    // alert('ok clicked')
-    addText('ok')
-}
+// function onOkClicked(e) {
+//     e.stopPropagation();
+//     // alert('ok clicked')
+//     addText('ok')
+// }
 
-function onCancelClicked(e) {
-    e.stopPropagation();
-    // alert('cancel clicked')
-    addText('cancel')
-}
+// function onCancelClicked(e) {
+//     e.stopPropagation();
+//     // alert('cancel clicked')
+//     addText('cancel')
+// }
 
-function onNoClicked(e) {
-    e.stopPropagation();
-    // alert('no clicked')
-    addText('no')
-}
+// function onNoClicked(e) {
+//     e.stopPropagation();
+//     // alert('no clicked')
+//     addText('no')
+// }
 let output = ' '
 let outputElement = document.getElementById('output')
 document.getElementById('container').onclick = function() {
@@ -80,5 +80,18 @@ function addText(input) {
     output = output + input + ' '
     outputElement.innerText = output
 }
-document.getElementById('cancel').addEventListener('click', onCancelClicked)
-document.getElementById('no').onclick = onNoClicked
+// document.getElementById('cancel').addEventListener('click', onCancelClicked)
+// document.getElementById('no').onclick = onNoClicked
+
+let keyword = {
+    'ok': 'Ok',
+    'cancel': 'Cancel',
+    'no': 'No'
+}
+let elems = document.getElementsByClassName('flex-item')
+for (let elem of elems) {
+    elem.addEventListener('click', function(e) {
+        e.stopPropagation()
+        addText(keyword[elem.innerText])
+    })
+}
