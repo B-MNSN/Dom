@@ -103,7 +103,7 @@ function addNode() {
     newNode = document.createElement('div')
     newNode.classList.add('flex-item')
     newNode.setAttribute('id', counter)
-    newNode, innerText = counter
+    newNode.innerText = counter
     counter = counter + 1
     newNode.innerText = counter
     outputContainer.appendChild(newNode)
